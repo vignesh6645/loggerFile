@@ -12,7 +12,7 @@
             <pattern>%date{ISO8601} %-5level %class{0}:%L - [%X] %msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>E:/Logs/archived/debug.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>E:/LogFile/archived/debug.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
 
                 <maxFileSize>10KB</maxFileSize>
@@ -35,7 +35,7 @@
         </encoder>
     </appender>
     <appender name="SIZE_TIME_OUTPUT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>E:/Logs/error.log</file>
+        <file>E:/LogFile/error.log</file>
         <encoder>
             <pattern>%date{ISO8601} %-5level %class{0}:%L - [%X] %msg%n</pattern>
         </encoder>
