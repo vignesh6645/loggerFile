@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name = "STDOUT"
+              class = "ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{ISO8601} %-5level %class{0}:%L - [%X] %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="SIZE_TIME_OUTPUT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>E:/Logs/debug.log</file>
+        <encoder>
+            <pattern>%date{ISO8601} %-5level %class{0}:%L - [%X] %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>E:/Logs/archived/debug.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+
+                <maxFileSize>10KB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+            <maxHistory>3</maxHistory>
+        </rollingPolicy>
+
+    </appender>
+
+    <root level = "INFO">
+        <appender-ref ref = "SIZE_TIME_OUTPUT_FILE"/>
+        <appender-ref ref = "STDOUT"/>
+    </root>
+<!-- logger for error-->
+    <appender name = "STDOUT"
+              class = "ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{ISO8601} %-5level %class{0}:%L - [%X] %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="SIZE_TIME_OUTPUT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>E:/Logs/error.log</file>
+        <encoder>
+            <pattern>%date{ISO8601} %-5level %class{0}:%L - [%X] %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>E:/Logs/archived/error%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+
+                <maxFileSize>10KB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+            <maxHistory>3</maxHistory>
+        </rollingPolicy>
+
+    </appender>
+
+    <root level = "ERROR">
+        <appender-ref ref = "SIZE_TIME_OUTPUT_FILE"/>
+        <appender-ref ref = "STDOUT"/>
+    </root>
+</configuration>
